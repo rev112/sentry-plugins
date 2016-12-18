@@ -17,13 +17,14 @@ def pytest_configure(config):
     settings.INSTALLED_APPS = tuple(settings.INSTALLED_APPS) + (
         'sentry_plugins.asana',
         'sentry_plugins.bitbucket',
-        'sentry_plugins.hipchat_ac',
         'sentry_plugins.github',
         'sentry_plugins.gitlab',
+        'sentry_plugins.hipchat_ac',
+        'sentry_plugins.jira',
         'sentry_plugins.pagerduty',
         'sentry_plugins.pivotal',
         'sentry_plugins.pushover',
-        'sentry_plugins.jira',
+        'sentry_plugins.redmine',
         'sentry_plugins.segment',
         'sentry_plugins.slack',
         'sentry_plugins.victorops',
@@ -40,6 +41,7 @@ def pytest_configure(config):
     from sentry_plugins.pagerduty.plugin import PagerDutyPlugin
     from sentry_plugins.pivotal.plugin import PivotalPlugin
     from sentry_plugins.pushover.plugin import PushoverPlugin
+    from sentry_plugins.redmine.plugin import RedminePlugin
     from sentry_plugins.segment.plugin import SegmentPlugin
     from sentry_plugins.slack.plugin import SlackPlugin
     from sentry_plugins.victorops.plugin import VictorOpsPlugin
@@ -52,6 +54,7 @@ def pytest_configure(config):
     plugins.register(PagerDutyPlugin)
     plugins.register(PivotalPlugin)
     plugins.register(PushoverPlugin)
+    plugins.register(RedminePlugin)
     plugins.register(SegmentPlugin)
     plugins.register(SlackPlugin)
     plugins.register(VictorOpsPlugin)
